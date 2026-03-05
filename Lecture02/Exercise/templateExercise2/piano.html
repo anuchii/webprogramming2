@@ -11,6 +11,7 @@
     <div class="container text-center my-5">
         <h1>Virtual Piano</h1>
         <p>Press the following keys to play the notes:</p>
+<!-- 
         <ul class="list-inline">
             <li class="list-inline-item"><strong>A</strong> - C</li>
             <li class="list-inline-item"><strong>S</strong> - D</li>
@@ -20,17 +21,29 @@
             <li class="list-inline-item"><strong>H</strong> - A</li>
             <li class="list-inline-item"><strong>J</strong> - B</li>
         </ul>
-        <div id="piano" class="d-flex justify-content-center">
-            <!-- Piano keys with IDs for JavaScript interaction -->
-            <div class="key" id="keyC">C</div>
-            <div class="key" id="keyD">D</div>
-            <div class="key" id="keyE">E</div>
-            <div class="key" id="keyF">F</div>
-            <div class="key" id="keyG">G</div>
-            <div class="key" id="keyA">A</div>
-            <div class="key" id="keyB">B</div>
+-->
+
+        <div id="piano" aria-label="Virtual piano">
+            <div class="white-keys">
+                <div class="key" id="keyC" data-note="C" data-key="A">C</div>
+                <div class="key" id="keyD" data-note="D" data-key="S">D</div>
+                <div class="key" id="keyE" data-note="E" data-key="D">E</div>
+                <div class="key" id="keyF" data-note="F" data-key="F">F</div>
+                <div class="key" id="keyG" data-note="G" data-key="G">G</div>
+                <div class="key" id="keyA" data-note="A" data-key="H">A</div>
+                <div class="key" id="keyB" data-note="B" data-key="J">B</div>
+            </div>
+
+            <div class="black-keys" aria-hidden="true">
+                <div class="key black" id="keyCs" data-note="C#">C#</div>
+                <div class="key black" id="keyDs" data-note="D#">D#</div>
+                <div class="key black" id="keyFs" data-note="F#">F#</div>
+                <div class="key black" id="keyGs" data-note="G#">G#</div>
+                <div class="key black" id="keyAs" data-note="A#">A#</div>
+            </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

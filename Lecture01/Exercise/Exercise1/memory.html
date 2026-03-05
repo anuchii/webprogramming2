@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center my-4 ">Memory Game</h1>
+        <div id="game-board" class="row justify-content-center">
+
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+            <div class="card" onclick="handleCardClick(this)">?</div>
+          
+           
+        </div>
+
+        <div class="text-center mt-3">
+            <button id="restart-btn" class="btn btn-primary" onclick="startGame()">Nochmal spielen</button>
+        </div>
+    </div>
+    <script>
+        const board = document.getElementById("game-board");
+        const cards = Array.from(board.querySelectorAll(".card"));
+        const restartBtn = document.getElementById("restart-btn");
+
+        const symbols = ["🫀", "🧠", "🫁", "👁️"];
+
+        let firstCard = null;
+        let secondCard = null;
+        let lockBoard = false;
+        let matchedPairs = 0;
+      
+
+        function shuffleDeck() {
+            const deck = [...symbols, ...symbols];
+
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+            }
+ 
+            return deck;
+        } 
+
+        function resetCards() {
+            firstCard = null;
+            secondCard = null;
+            lockBoard = false;
+        }
+
+        function flipCard(card) {
+            card.textContent = card.dataset.value;
+            card.classList.add("flipped");
+            
+        }
+
+        function unflipCard(card) {
+            card.textContent = "?";
+            card.classList.remove("flipped");
+        }
+
+        function disableCard(card) {
+            card.classList.add("matched");
+        }
+
+        function handleMatch() {
+            disableCard(firstCard);
+            disableCard(secondCard);
+            matchedPairs += 1;
+
+            resetCards();
+
+            if (matchedPairs === symbols.length) {
+                setTimeout(() => {
+                    alert("Yuhuuuu du hast alle Paare gefunden");
+                }, 200);
+            }
+        }
+
+        function handleMismatch() {
+            
+            setTimeout(() => {
+                unflipCard(firstCard);
+                unflipCard(secondCard);
+                resetCards();
+            }, 800);
+        }
+
+        function handleCardClick(clicked) {
+    
+
+            if (lockBoard) return;
+            if (clicked === firstCard) return; 
+            if (clicked.classList.contains("matched")) return;
+
+            flipCard(clicked);
+
+            if (!firstCard) {
+                firstCard = clicked;
+                return;
+            }
+
+        
+            secondCard = clicked;
+            lockBoard = true;
+
+       
+            if (firstCard.dataset.value === secondCard.dataset.value) {
+                handleMatch();
+            } else {
+                handleMismatch();
+            }
+        }
+
+        function startGame() {
+            const deck = shuffleDeck();
+            matchedPairs = 0;
+            resetCards();
+
+            cards.forEach((card, index) => {
+                card.dataset.value = deck[index];
+                card.textContent = "?";
+                card.classList.remove("flipped", "matched");
+            });
+        }
+
+
+        startGame();
+    </script>
+</body>
+
+</html>
