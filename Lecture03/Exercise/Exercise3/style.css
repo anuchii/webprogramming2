@@ -23,5 +23,8 @@ body {
 }
 
 .card.flipped {
-    background-color: #28a745;
+    background-color: #ffc1c1;
+}
+.card.matched {
+    background-color: green;
 }
