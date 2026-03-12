@@ -47,7 +47,7 @@ function renderBoard(level) {
     });
 
     
-    cards = Array.from(board.querySelectorAll(".card"));
+    //cards = Array.from(board.querySelectorAll(".card"));
 }
 
 function shuffleDeck(deck) {
@@ -79,6 +79,43 @@ function disableCard(card) {
     card.classList.add("matched");
 }
 
+
+function handleCardClick(clicked) {
+    if (!timerInterval) {
+        timerInterval = setInterval(() => {
+            timer++;
+            if (timerDisplay) {
+                timerDisplay.textContent = "Time: " + timer + "s";
+            }
+        }, 1000);
+    }
+    
+    if (lockBoard) return;
+    if (clicked.classList.contains("matched")) return;
+    if (flippedCards.includes(clicked)) return;
+    
+    clickCount++;
+    if (clickDisplay) {
+        clickDisplay.textContent = "Clicks: " + clickCount;
+    }
+    
+    flipCard(clicked);
+    flippedCards.push(clicked);
+    
+    if (flippedCards.length === 1) {
+        return;
+    }
+    
+    lockBoard = true;
+    
+    if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
+        handleMatch();
+    } else {
+        handleMismatch();
+    }
+}
+
+
 function handleMatch() {
     disableCard(flippedCards[0]);
     disableCard(flippedCards[1]);
@@ -104,6 +141,7 @@ function handleMatch() {
     }
 }
 
+
 function handleMismatch() {
 
     setTimeout(() => {
@@ -111,41 +149,6 @@ function handleMismatch() {
         unflipCard(flippedCards[1]);
         resetCards();
     }, 800);
-}
-
-function handleCardClick(clicked) {
-    if (!timerInterval) {
-        timerInterval = setInterval(() => {
-            timer++;
-            if (timerDisplay) {
-                timerDisplay.textContent = "Time: " + timer + "s";
-            }
-        }, 1000);
-    }
-
-    if (lockBoard) return;
-    if (clicked.classList.contains("matched")) return;
-    if (flippedCards.includes(clicked)) return;
-
-    clickCount++;
-    if (clickDisplay) {
-        clickDisplay.textContent = "Clicks: " + clickCount;
-    }
-
-    flipCard(clicked);
-    flippedCards.push(clicked);
-
-    if (flippedCards.length === 1) {
-        return;
-    }
-
-    lockBoard = true;
-
-    if (flippedCards[0].dataset.value === flippedCards[1].dataset.value) {
-        handleMatch();
-    } else {
-        handleMismatch();
-    }
 }
 
 function startGame() {
@@ -158,6 +161,7 @@ function startGame() {
     
     renderBoard(currentLevel);
 }
+
 
 
 function resetGame() {
