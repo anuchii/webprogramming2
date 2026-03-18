@@ -1,0 +1,12 @@
+{
+    "songs": [
+        {
+            "level": "Level 1",
+            "sequence": ["C", "D", "E", "C"]
+        },
+        {
+            "level": "Level 2",
+            "sequence": ["A", "D", "B", "C"]
+        }
+    ]
+}

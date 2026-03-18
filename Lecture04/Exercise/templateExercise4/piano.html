@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Piano</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
     <div class="container text-center my-5">
         <h1>Virtual Piano</h1>
@@ -37,12 +40,23 @@
         </ul>
         <div id="piano" class="d-flex justify-content-center">
             <!-- Piano keys with IDs for JavaScript interaction -->
+
         </div>
-        <div id="note-line" class="mt-4">
-            <!-- Place Note Line here -->
-        </div>
-        <!-- Place Buttons here -->
     </div>
+    <div  class ="text-center mt-4" id="note-line" class="mt-4">
+        <!-- Place Note Line here -->
+    </div>
+
+    <div class="text-center mt-3">
+        <!-- Place Buttons here -->
+        <select id="level-select" class="mt-3">
+            <option value="0">Level 1</option>
+            <option value="1">Level 2</option>
+        </select>
+    </div>
+
+
     <script src="script.js"></script>
 </body>
+
 </html>
