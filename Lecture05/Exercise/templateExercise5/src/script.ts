@@ -1,8 +1,3 @@
-interface PianoKey {
-    key: string;
-    note: string;
-}
-
 interface Song {
     level: string;
     sequence: string[];
@@ -13,19 +8,36 @@ interface SongsData {
 }
 
 
+class PianoKey {
+    note: string;
+    key: string;
+
+    constructor(key: string, note: string ) {
+        this.note = note;
+        this.key = key;
+    }
+
+    playSound(): void {
+        const audio = new Audio(`sounds/${this.note}.mp3`);
+        audio.currentTime = 0;
+        audio.play();
+    }
+}
+
+
 const pianoKeys: PianoKey[] = [
-    { key: "a", note: "C" },
-    { key: "w", note: "C5" },
-    { key: "s", note: "D" },
-    { key: "e", note: "D5" },
-    { key: "d", note: "E" },
-    { key: "f", note: "F" },
-    { key: "t", note: "F5" },
-    { key: "z", note: "G5" },
-    { key: "g", note: "G" },
-    { key: "h", note: "A" },
-    { key: "u", note: "A5" },
-    { key: "j", note: "B" },
+    new PianoKey("a", "C"),
+    new PianoKey("w", "C5"),
+    new PianoKey("s", "D"),
+    new PianoKey("e", "D5"),
+    new PianoKey("d", "E"),
+    new PianoKey("f", "F"),
+    new PianoKey("t", "F5"),
+    new PianoKey("z", "G5"),
+    new PianoKey("g", "G"),
+    new PianoKey("h", "A"),
+    new PianoKey("u", "A5"),
+    new PianoKey("j", "B"),
 ];
 
 const pianoDiv = document.getElementById("piano") as HTMLDivElement;
