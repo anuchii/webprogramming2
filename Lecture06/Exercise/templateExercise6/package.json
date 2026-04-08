@@ -1,0 +1,12 @@
+{
+  "name": "templateexercise6",
+  "version": "1.0.0",
+  "description": "The goal of this exercise is to develop a **multiple-choice quiz application** using modular development principles in TypeScript. Each team consists of **2 students** (maximum 3). Each team will focus on three core modules and collaborate on the final integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

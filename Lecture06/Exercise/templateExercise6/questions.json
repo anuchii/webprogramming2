@@ -1,9 +1,317 @@
 [
   {
-    "category": "Math",
-    "question": "What is 2 + 2?",
-    "options": [2, 3, 4, 5],
-    "answer": 4,
+    "category": "Modular Development",
+    "question": "What is the main goal of modular development?",
+    "options": [
+      "Write all code in a single file",
+      "Break an application into smaller, reusable components",
+      "Minimize the number of variables",
+      "Separate CSS from HTML"
+    ],
+    "answer": "Break an application into smaller, reusable components",
     "difficulty": "easy"
+  },
+  {
+    "category": "HTML",
+    "question": "Which HTML attribute is used to link a JavaScript file to an HTML page?",
+    "options": ["href", "link", "src", "script"],
+    "answer": "src",
+    "difficulty": "easy"
+  },
+  {
+    "category": "HTML",
+    "question": "What does the 'defer' attribute do on a script tag?",
+    "options": [
+      "Loads the script before the HTML is parsed",
+      "Prevents the script from loading",
+      "Runs the script after the HTML is fully parsed",
+      "Loads the script from a CDN"
+    ],
+    "answer": "Runs the script after the HTML is fully parsed",
+    "difficulty": "easy"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What is the difference between '==' and '===' in JavaScript?",
+    "options": [
+      "There is no difference",
+      "'==' checks value only, '===' checks value and type",
+      "'===' checks value only, '==' checks value and type",
+      "'==' is used for numbers, '===' for strings"
+    ],
+    "answer": "'==' checks value only, '===' checks value and type",
+    "difficulty": "easy"
+  },
+  {
+    "category": "JavaScript",
+    "question": "Which of the following correctly declares an arrow function?",
+    "options": [
+      "function => (x) { return x * 2 }",
+      "const double = (x) => x * 2",
+      "const double = x -> x * 2",
+      "arrow double(x) { return x * 2 }"
+    ],
+    "answer": "const double = (x) => x * 2",
+    "difficulty": "easy"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What value does 'typeof null' return in JavaScript?",
+    "options": ["null", "undefined", "object", "boolean"],
+    "answer": "object",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Modular Development",
+    "question": "Where are the quiz questions stored in the Quiz Game project?",
+    "options": ["In a database", "In an XML file", "In a JSON file", "In localStorage"],
+    "answer": "In a JSON file",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Modular Development",
+    "question": "Which of the following is NOT a mentioned benefit of modular development?",
+    "options": ["Scalability", "Reusability", "Maintainability", "Automatic testing"],
+    "answer": "Automatic testing",
+    "difficulty": "easy"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What is TypeScript?",
+    "options": [
+      "A database query language",
+      "A strongly typed superset of JavaScript",
+      "A CSS preprocessor",
+      "A JavaScript runtime environment"
+    ],
+    "answer": "A strongly typed superset of JavaScript",
+    "difficulty": "easy"
+  },
+  {
+    "category": "JavaScript",
+    "question": "Which keyword declares a block-scoped variable that can be reassigned?",
+    "options": ["var", "let", "const", "static"],
+    "answer": "let",
+    "difficulty": "easy"
+  },
+  {
+    "category": "Modular Development",
+    "question": "Which module is responsible for loading questions and managing the quiz flow?",
+    "options": ["ScoreManager", "QuestionRenderer", "QuizManager", "main.ts"],
+    "answer": "QuizManager",
+    "difficulty": "medium"
+  },
+  {
+    "category": "Modular Development",
+    "question": "Which file serves as the entry point of the Quiz Game application?",
+    "options": ["index.html", "questions.ts", "ui.ts", "main.ts"],
+    "answer": "main.ts",
+    "difficulty": "medium"
+  },
+  {
+    "category": "Modular Development",
+    "question": "What does the ScoreManager module do according to the lecture?",
+    "options": [
+      "Loads questions from the JSON file",
+      "Dynamically renders questions in the browser",
+      "Tracks scores based on difficulty and displays them after a round",
+      "Manages the WebSocket connection"
+    ],
+    "answer": "Tracks scores based on difficulty and displays them after a round",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does array.filter() return?",
+    "options": [
+      "The first element that matches the condition",
+      "A new array with elements that pass the condition",
+      "A boolean",
+      "The index of the matching element"
+    ],
+    "answer": "A new array with elements that pass the condition",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does array.find() return?",
+    "options": [
+      "All elements that match the condition",
+      "The index of the first matching element",
+      "The first element that satisfies the condition",
+      "A new filtered array"
+    ],
+    "answer": "The first element that satisfies the condition",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does the spread operator '...' do when used with an array?",
+    "options": [
+      "Removes all elements from an array",
+      "Expands the elements of the array individually",
+      "Creates a nested array",
+      "Sorts the array"
+    ],
+    "answer": "Expands the elements of the array individually",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What is destructuring in JavaScript?",
+    "options": [
+      "Deleting properties from an object",
+      "Copying an entire object",
+      "Extracting values from arrays or objects into variables",
+      "Merging two objects together"
+    ],
+    "answer": "Extracting values from arrays or objects into variables",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does 'async/await' replace in terms of code style?",
+    "options": [
+      "for loops",
+      "try/catch blocks",
+      "Promise .then()/.catch() chaining",
+      "Variable declarations"
+    ],
+    "answer": "Promise .then()/.catch() chaining",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does element.classList.add('active') do?",
+    "options": [
+      "Removes the 'active' class from the element",
+      "Checks if the element has the 'active' class",
+      "Adds the 'active' CSS class to the element",
+      "Toggles the 'active' class on the element"
+    ],
+    "answer": "Adds the 'active' CSS class to the element",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does element.appendChild() do?",
+    "options": [
+      "Removes the last child of the element",
+      "Adds a new child element at the end of the parent",
+      "Replaces all children of the element",
+      "Creates a new parent element"
+    ],
+    "answer": "Adds a new child element at the end of the parent",
+    "difficulty": "medium"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does response.json() do when using fetch()?",
+    "options": [
+      "Sends JSON data to a server",
+      "Converts the response body to a JavaScript object",
+      "Validates the JSON format",
+      "Stringifies a JavaScript object"
+    ],
+    "answer": "Converts the response body to a JavaScript object",
+    "difficulty": "hard"
+  },
+  {
+    "category": "JavaScript",
+    "question": "What does event.key contain in a keydown event handler?",
+    "options": [
+      "The ASCII code of the key",
+      "The name of the key that was pressed",
+      "The mouse position at time of keypress",
+      "The ID of the focused element"
+    ],
+    "answer": "The name of the key that was pressed",
+    "difficulty": "hard"
+  },
+  {
+    "category": "JavaScript",
+    "question": "Which selector method returns ALL matching elements?",
+    "options": [
+      "document.getElementById()",
+      "document.querySelector()",
+      "document.querySelectorAll()",
+      "document.getElement()"
+    ],
+    "answer": "document.querySelectorAll()",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What is the correct way to declare a typed string variable in TypeScript?",
+    "options": [
+      "let name = string 'Ana'",
+      "let name: string = 'Ana'",
+      "string let name = 'Ana'",
+      "let name as string = 'Ana'"
+    ],
+    "answer": "let name: string = 'Ana'",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What does the '?' symbol mean in a TypeScript interface property?",
+    "options": [
+      "The property is read-only",
+      "The property is required",
+      "The property is optional",
+      "The property can be null only"
+    ],
+    "answer": "The property is optional",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What does 'readonly' do in a TypeScript interface?",
+    "options": [
+      "Makes the property optional",
+      "Prevents the property from being modified after initialization",
+      "Makes the property private",
+      "Converts the property to a string"
+    ],
+    "answer": "Prevents the property from being modified after initialization",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What is type inference in TypeScript?",
+    "options": [
+      "Manually assigning a type to every variable",
+      "TypeScript automatically determining the type from the assigned value",
+      "Converting types at runtime",
+      "Using 'any' to disable type checking"
+    ],
+    "answer": "TypeScript automatically determining the type from the assigned value",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "What is the return type of a function that returns nothing in TypeScript?",
+    "options": ["null", "undefined", "void", "never"],
+    "answer": "void",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "How do you type an array of strings in TypeScript?",
+    "options": ["Array(string)", "string{}", "string[]", "[string]"],
+    "answer": "string[]",
+    "difficulty": "hard"
+  },
+  {
+    "category": "TypeScript",
+    "question": "When you write 'document.getElementById(\"x\") as HTMLInputElement', what does 'as' do?",
+    "options": [
+      "Creates a new element",
+      "Deletes the element",
+      "Tells TypeScript to treat the element as a specific type",
+      "Converts the element to a string"
+    ],
+    "answer": "Tells TypeScript to treat the element as a specific type",
+    "difficulty": "hard"
   }
 ]
