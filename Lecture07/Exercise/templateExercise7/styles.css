@@ -26,3 +26,17 @@ body {
   background-color: #28a745;
 }
 
+.card.flipped {
+    background-color: #ffc1c1;
+}
+#player-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#scoreboard {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+}
