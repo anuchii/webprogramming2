@@ -1,0 +1,29 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 10px;
+}
+label {
+  width: 80px;
+  text-align: right;
+}
+input {
+  width: 200px;
+  padding: 0.3rem 0.5rem;
+  gap: 1rem ;
+}

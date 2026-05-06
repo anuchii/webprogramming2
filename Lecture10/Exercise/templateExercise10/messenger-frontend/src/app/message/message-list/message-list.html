@@ -1,0 +1,6 @@
+<p>message-list works!</p>
+@for (msg of messages; track msg.sender) {
+  <div>
+    <strong>{{ msg.sender }}</strong>: {{ msg.content }}
+  </div>
+}
