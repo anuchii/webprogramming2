@@ -1,0 +1,13 @@
+{
+  "name": "exercise",
+  "version": "1.0.0",
+  "description": "Use **TypeScript** and the provided **Chat API** to:\r 1. **Register** a user  (Task 1 = 2 Points)\r 2. **Log in** a user  (Task 2 = 2 Points)\r 3. **Fetch and display the user list** (to confirm it works)  (Task 3 = 2 Points)\r 4. **Send a message** to a (hardcoded) user (Task 4 = 1 Point)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}
