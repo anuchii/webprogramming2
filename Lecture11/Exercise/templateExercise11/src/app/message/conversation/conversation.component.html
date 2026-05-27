@@ -1,0 +1,33 @@
+<div class="chat">
+  <div class="chat-header">
+    <strong>{{ user.name }}</strong>
+    <button class="btn btn-outline-secondary" (click)="loadMessages()">↺ Refresh</button>
+  </div>
+
+  @if (isLoading()) {
+    <p class="p-2">loading...</p>
+  }
+  @if (errorMessage()) {
+    <p class="text-danger p-2">{{ errorMessage() }}</p>
+  }
+
+  <div class="messages-container" #messageContainer>
+    @for (msg of messages(); track $index) {
+      <div class="message" [class.sent]="msg.sender_id === apiService.loginStatus().id">
+        <span class="bubble">{{ msg.message }}</span>
+      </div>
+    } @empty {
+      <p class="text-muted text-center mt-3">this chat is empty 🥲</p>
+    }
+  </div>
+
+  <div class="message-input">
+    <input
+      [(ngModel)]="newMessage"
+      (keyup.enter)="sendMessage()"
+      class="form-control"
+      placeholder=" "
+    />
+    <button class="btn btn-primary " (click)="sendMessage()">Send</button>
+  </div>
+</div>

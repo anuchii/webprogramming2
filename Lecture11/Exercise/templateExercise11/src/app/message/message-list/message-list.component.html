@@ -1,0 +1,25 @@
+<div class="messenger-list">
+
+  <div class="user-list">
+    @if (isLoading()) {
+      <p class="p-3">Lade Kontakte...</p>
+    }
+    @if (errorMessage()) {
+      <p class="text-danger p-3">{{ errorMessage() }}</p>
+    }
+    @for (user of contacts(); track user.id) {
+      <div
+        class="user-div"
+        [class.active]="activeUser()?.id === user.id"
+        (click)="loadConversation(user)">
+        {{ user.name }}
+      </div>
+    }
+  </div>
+ 
+  <div class="conversation-window">
+    @if (activeUser()) {
+      <app-conversation [user]="activeUser()!" />
+    } 
+  </div>
+</div>
