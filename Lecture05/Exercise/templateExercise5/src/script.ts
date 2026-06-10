@@ -1,43 +1,47 @@
 interface Song {
-    level: string;
-    sequence: string[];
+  level: string;
+  sequence: string[];
 }
 
 interface SongsData {
-    songs: Song[];
+  songs: Song[];
 }
-
 
 class PianoKey {
-    note: string;
-    key: string;
+  readonly note: string;
+  key: string;
 
-    constructor(key: string, note: string ) {
-        this.note = note;
-        this.key = key;
-    }
+  constructor(key: string, note: string) {
+    this.note = note;
+    this.key = key;
+  }
 
-    playSound(): void {
-        const audio = new Audio(`sounds/${this.note}.mp3`);
-        audio.currentTime = 0;
-        audio.play();
+  playSound(): void {
+    const audio = new Audio(`sounds/${this.note}.mp3`);
+    audio.currentTime = 0;
+    audio.play();
+    activateKey(this.note);
+
+    if (loadedSequence[currentIndex] === this.note) {
+      currentIndex++;
+      displaySequence();
     }
+  }
 }
 
-
 const pianoKeys: PianoKey[] = [
-    new PianoKey("a", "C"),
-    new PianoKey("w", "C5"),
-    new PianoKey("s", "D"),
-    new PianoKey("e", "D5"),
-    new PianoKey("d", "E"),
-    new PianoKey("f", "F"),
-    new PianoKey("t", "F5"),
-    new PianoKey("z", "G5"),
-    new PianoKey("g", "G"),
-    new PianoKey("h", "A"),
-    new PianoKey("u", "A5"),
-    new PianoKey("j", "B"),
+  new PianoKey("a", "C"),
+  new PianoKey("w", "C5"),
+  new PianoKey("s", "D"),
+  new PianoKey("e", "D5"),
+  new PianoKey("d", "E"),
+  new PianoKey("f", "F"),
+  new PianoKey("t", "F5"),
+  new PianoKey("z", "G5"),
+  new PianoKey("g", "G"),
+  new PianoKey("h", "A"),
+  new PianoKey("u", "A5"),
+  new PianoKey("j", "B"),
 ];
 
 const pianoDiv = document.getElementById("piano") as HTMLDivElement;
@@ -51,106 +55,87 @@ blackKeysDiv.classList.add("black-keys");
 pianoDiv.appendChild(whiteKeysDiv);
 pianoDiv.appendChild(blackKeysDiv);
 
-
 pianoKeys.forEach((pianoKey: PianoKey) => {
-    const keyDiv = document.createElement("div");
-    keyDiv.dataset.note = pianoKey.note;
+  const keyDiv = document.createElement("div");
+  keyDiv.dataset.note = pianoKey.note;
 
-    if (pianoKey.note.includes("5")) {
-        keyDiv.classList.add("key", "black");
-        keyDiv.id = "key" + pianoKey.note
-        keyDiv.textContent = pianoKey.note;
-        blackKeysDiv.appendChild(keyDiv);
+  keyDiv.addEventListener("click", () => {
+    pianoKey.playSound();
+  });
 
-    } else {
-        keyDiv.classList.add("key");
-        keyDiv.textContent = pianoKey.note;
-        whiteKeysDiv.appendChild(keyDiv);
-    }
+  if (pianoKey.note.includes("5")) {
+    keyDiv.classList.add("key", "black");
+    keyDiv.id = "key" + pianoKey.note;
+    keyDiv.textContent = pianoKey.note;
+    blackKeysDiv.appendChild(keyDiv);
+  } else {
+    keyDiv.classList.add("key");
+    keyDiv.textContent = pianoKey.note;
+    whiteKeysDiv.appendChild(keyDiv);
+  }
 });
-
 
 let loadedSequence: string[] = [];
 let currentIndex: number = 0;
 
 function displaySequence(): void {
-    const noteLine = document.getElementById("note-line") as HTMLDivElement;
-    noteLine.innerHTML = "";
+  const noteLine = document.getElementById("note-line") as HTMLDivElement;
+  noteLine.innerHTML = "";
 
-    for (let i: number = 0; i < loadedSequence.length; i++) {
-        const span = document.createElement("span") ;
-        span.textContent = loadedSequence[i] ?? "";
+  for (let i: number = 0; i < loadedSequence.length; i++) {
+    const span = document.createElement("span");
+    span.textContent = loadedSequence[i] ?? "";
 
-        if (i === currentIndex) {
-            span.classList.add("active-note");
-        }
-
-        noteLine.appendChild(span);
-
-        if (i < loadedSequence.length - 1) {
-            noteLine.innerHTML += " - ";
-        }
+    if (i === currentIndex) {
+      span.classList.add("active-note");
     }
+
+    noteLine.appendChild(span);
+    if (i < loadedSequence.length - 1) {
+      noteLine.appendChild(document.createTextNode(" - "));
+    }
+  }
+}
+function loadSongs(): void {
+  fetch("notes.json")
+    .then((response) => response.json())
+    .then((data: SongsData) => {
+      const firstSong = data.songs[0];
+      if (firstSong) {
+        loadedSequence = firstSong.sequence;
+        displaySequence();
+      }
+
+      const levelSelect = document.getElementById(
+        "level-select"
+      ) as HTMLSelectElement;
+      levelSelect.addEventListener("change", function () {
+        const index = parseInt(this.value);
+        const selectedSong = data.songs[index];
+
+        if (selectedSong) {
+          loadedSequence = selectedSong.sequence;
+          currentIndex = 0;
+          displaySequence();
+        }
+      });
+    })
+    .catch((error) => {
+      console.error("Fehler beim Laden:", error);
+    });
 }
 
-fetch("notes.json")
-    .then(response => response.json())
-    .then((data: SongsData) => {
-        const firstSong = data.songs[0];
-        if (firstSong) {
-            loadedSequence = firstSong.sequence;
-            displaySequence();
-        }
-
-        const LevelSelect = document.getElementById("level-select") as HTMLSelectElement;
-        LevelSelect.addEventListener("change", function () {
-            const index = parseInt(this.value);
-            const selectedSong = data.songs[index];
-
-            if (selectedSong) {
-                loadedSequence = selectedSong.sequence;
-                currentIndex = 0;
-                displaySequence();
-
-            }
-
-        });
-    })
-
-
-
-const keys = document.querySelectorAll(".key");
-
-
-keys.forEach(key => {
-    key.addEventListener("click", () => {
-        const note = (key as HTMLElement).dataset.note;
-        if (note) playSound(note);
-    });
-});
-
-
-function playSound(note: string) {
-    const audio = new Audio(`sounds/${note}.mp3`)
-    audio.currentTime = 0;
-    audio.play();
-    activateKey(note);
-
-    if (loadedSequence[currentIndex] === note) {
-        currentIndex++;
-        displaySequence();
-    }
+function activateKey(note: string) {
+  const keyDiv = document.querySelector(`[data-note="${note}"]`);
+  if (keyDiv) {
+    keyDiv.classList.add("active");
+    setTimeout(() => keyDiv.classList.remove("active"), 200);
+  }
 }
 
 document.addEventListener("keydown", function (event) {
-    const pianoKey = pianoKeys.find(k => k.key === event.key);
-    if (pianoKey) playSound(pianoKey.note);
+  const pianoKey = pianoKeys.find((k) => k.key === event.key);
+  if (pianoKey) pianoKey.playSound();
 });
 
-function activateKey(note: string) {
-    const keyDiv = document.querySelector(`[data-note="${note}"]`);
-    if (keyDiv) {
-        keyDiv.classList.add("active");
-        setTimeout(() => keyDiv.classList.remove("active"), 200);
-    }
-}
+loadSongs();

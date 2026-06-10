@@ -35,7 +35,6 @@
 
 .white-keys {
     display: flex;
-    height: 100%;
 }
 
 .white-keys .key {
@@ -88,4 +87,10 @@
 .active-note {
     font-weight: bold;
     color: blue;
+}
+.black-keys .key.black.active {
+    background: #333;
+}
+.white-keys .key.active {
+    background: #cce5ff;
 }
