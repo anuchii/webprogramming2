@@ -4,11 +4,16 @@ import { renderPlayerName, renderQuestion, showFeedback, renderLeaderboard } fro
 
 async function startApp(): Promise<void> {
     const allQuestions = await fetchQuestions();
-
-    renderPlayerName((names: string[]) => {
-        runQuizForPlayer(allQuestions, names, 0, []);
+    
+    if (allQuestions.length === 0) {
+    alert("Fragen konnten nicht geladen werden!");
+    return;
+    }
+    renderPlayerName((players: string[]) => {
+        runQuizForPlayer(allQuestions, players, 0, []);
     });
 }
+
 
 function runQuizForPlayer(
     allQuestions: Question[],

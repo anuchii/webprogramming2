@@ -14,11 +14,6 @@ const pointsMap: Record<string, number> = {
 
 const MAX_POINTS = 2 * 1 + 2 * 2 + 1 * 3; // = 9
 
-export function calculatePoints(question: Question, isCorrect: boolean): number {
-    if (!isCorrect) return 0;
-    return pointsMap[question.difficulty];
-}
-
 export function calculateScore(name: string, questions: Question[], answers: string[]): PlayerScore {
     let points = 0;
     questions.forEach((q, i) => {
