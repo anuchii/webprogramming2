@@ -7,7 +7,21 @@
     @if (errorMessage()) {
       <p class="text-danger p-3">{{ errorMessage() }}</p>
     }
-    @for (user of contacts(); track user.id) {
+
+    @if (knownUsers().length) {
+      <p class="p-2 fw-bold">Bekannte Kontakte</p>
+      @for (user of knownUsers(); track user.id) {
+        <div class="user-div"
+          [class.active]="activeUser()?.id === user.id"
+          (click)="loadConversation(user)">
+          {{ user.name }}
+        </div>
+      }
+      <p class="p-2 fw-bold">Andere Kontakte</p>
+    }
+
+
+    @for (user of otherUsers(); track user.id) {
       <div
         class="user-div"
         [class.active]="activeUser()?.id === user.id"

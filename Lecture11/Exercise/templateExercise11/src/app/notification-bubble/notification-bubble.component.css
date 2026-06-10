@@ -1,0 +1,19 @@
+.notification-bubble {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #4a90e2;
+  color: white;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  max-width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+}
+
+.close {
+  float: right;
+  margin-left: 10px;
+  font-weight: bold;
+}

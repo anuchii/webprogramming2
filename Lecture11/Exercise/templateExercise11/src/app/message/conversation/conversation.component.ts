@@ -1,18 +1,28 @@
-import { Component, Input, OnChanges, SimpleChanges, signal, inject, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  signal,
+  inject,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ApiService, ChatMessage, User } from '../../service/api.service';
-
+import { WebSocketService } from '../../service/web-socket.service';
 @Component({
   selector: 'app-conversation',
   imports: [FormsModule],
   templateUrl: './conversation.component.html',
-  styleUrl: './conversation.component.css'
+  styleUrl: './conversation.component.css',
 })
 export class ConversationComponent implements OnChanges {
   @Input() user!: User;
   @ViewChild('messageContainer') messageContainer!: ElementRef;
 
   apiService = inject(ApiService);
+  webSocketService = inject(WebSocketService);
 
   readonly messages = signal<ChatMessage[]>([]);
   readonly isLoading = signal(false);
@@ -22,6 +32,11 @@ export class ConversationComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     if (changes['user'] && this.user) {
       this.loadMessages();
+      this.webSocketService.newMessage$.subscribe((msg) => {
+        if (msg.sender_id === this.user.id) {
+          this.loadMessages();
+        }
+      });
     }
   }
 
