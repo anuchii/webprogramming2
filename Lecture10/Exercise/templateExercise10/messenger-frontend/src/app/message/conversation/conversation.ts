@@ -2,8 +2,14 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-conversation',
-  imports: [],
-  templateUrl: './conversation.html',
+  template:  `
+  <h2> Random Conversation </h2>
+    @for (msg of messages; track msg.sender) {
+      <div>
+        <strong>{{ msg.sender }}</strong>: {{ msg.content }}
+      </div>
+}
+  `,
   styleUrl: './conversation.css',
 })
 export class Conversation {

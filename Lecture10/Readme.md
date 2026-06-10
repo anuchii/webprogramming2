@@ -31,11 +31,11 @@ In this session, we will:
 ## 1. Why Angular?
 
 - **TypeScript-based**: Angular is built with TypeScript, offering type safety.
-- **Component-Driven**: Encourages modular architecture.
-- **Powerful CLI**: Simplifies project creation, code generation, and testing.
-- **Robust Ecosystem**: Numerous libraries, strong community support.
+- **Component-Driven**: Encourages modular architecture. **Wie?**
+- **Powerful CLI**: Simplifies project creation, code generation, and testing. **HOW?**
+- **Robust Ecosystem**: Numerous libraries, strong community support. **Welche libraries zum Beispiel?**
 
-### Real-World Use Cases
+### Real-World Use Cases **Was ist das**?
 - Large enterprise SPAs
 - Scalable and maintainable projects
 
@@ -45,8 +45,9 @@ In this session, we will:
 
 ### Installation & Setup
 1. **Node.js & npm**: Ensure Node.js is installed (`node -v`).
-2. **Angular CLI**: `npm install -g @angular/cli`
-3. **Editor Extensions**: Visual Studio Code with Angular Snippets, ESLint/TSLint, Prettier.
+2. **Angular CLI**: `npm install -g @angular/cli` **Was ist eigentlich npm?**
+3. **Editor Extensions**: Visual Studio Code with Angular Snippets, ESLint/TSLint, Prettier. **Was ist das und wie` Snippets, ESLint/TSLint, Prettier.**
+
 
 ---
 
@@ -76,9 +77,9 @@ In this session, we will:
 ---
 
 ### Data Binding
-1. **Interpolation**: `{{ variable }}`
-2. **Property Binding**: `[property]="expression"`
-3. **Event Binding**: `(event)="handler()"`
+1. **Interpolation**: `{{ variable }}` --> Text im HTML anzeigen
+2. **Property Binding**: `[property]="expression"` --> HTML-Eigenschaft setzen
+3. **Event Binding**: `(event)="handler()"` -->HTML → TypeScript
 4. **Two-Way Binding**: `[(ngModel)]="property"` (requires `FormsModule`)
 
 ### Code Demonstration
