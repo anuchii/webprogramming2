@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  text-align: center;
+  padding: 2rem;
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+a {
+  display: inline-block;
+  margin-top: 1rem;
+}
