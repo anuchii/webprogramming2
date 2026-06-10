@@ -5,8 +5,8 @@ import { renderPlayerName, renderQuestion, showFeedback, renderLeaderboard } fro
 async function startApp(): Promise<void> {
     const allQuestions = await fetchQuestions();
 
-    renderPlayerName((names: string[]) => {
-        runQuizForPlayer(allQuestions, names, 0, []);
+    renderPlayerName((players: string[]) => {
+        runQuizForPlayer(allQuestions, players, 0, []);
     });
 }
 
