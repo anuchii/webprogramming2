@@ -7,7 +7,7 @@ const symbols = ["🫀", "🧠", "🫁", "👁️", "🦵🏼", "🦶🏽", "✋
 let flippedCards = [];
 let lockBoard = false;
 let matchedPairs = 0;
-const pairsDisplay = document.getElementById("matchedPAirs");
+const pairsDisplay = document.getElementById("matchedPairs");
 let clickCount = 0;
 const clickDisplay = document.getElementById("clicks");
 
@@ -46,8 +46,6 @@ function renderBoard(level) {
         board.appendChild(card);
     });
 
-    
-    //cards = Array.from(board.querySelectorAll(".card"));
 }
 
 function shuffleDeck(deck) {
