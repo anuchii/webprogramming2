@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, signal, inject, ViewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ApiService, ChatMessage, User } from '../../api.service';
+import { ApiService, ChatMessage, User } from '../../service/api.service';
 
 @Component({
   selector: 'app-conversation',
