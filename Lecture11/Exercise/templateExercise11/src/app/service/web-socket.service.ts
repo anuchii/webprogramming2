@@ -27,7 +27,7 @@ export class WebSocketService {
     this.socket.onmessage = (event) => {
       const data = JSON.parse(event.data);
       if (data.event === 'message') {
-        this.newMessage$.next(data); // ← weiterleiten!
+        this.newMessage$.next(data); 
       }
       console.log('Neue Nachricht:', data);
     };
